@@ -6,7 +6,6 @@ This example creates an EventBridge connection with API key authentication, usin
 
 ```hcl
 data "aws_region" "current" {}
-data "aws_caller_identity" "current" {}
 
 module "resource_names" {
   source   = "terraform.registry.launch.nttdata.com/module_library/resource_name/launch"

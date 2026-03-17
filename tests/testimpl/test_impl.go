@@ -28,6 +28,8 @@ func TestComposableComplete(t *testing.T, ctx types.TestContext) {
 	cfg, err := config.LoadDefaultConfig(context.Background())
 	require.NoError(t, err, "failed to load AWS config")
 
+	// EventBridge Connection has no practical standalone write-path assertion beyond Terraform apply;
+	// verification is done via DescribeConnection to confirm persisted server-side state.
 	client := eventbridge.NewFromConfig(cfg)
 	result, err := client.DescribeConnection(context.Background(), &eventbridge.DescribeConnectionInput{
 		Name: aws.String(connectionName),

@@ -37,49 +37,6 @@ module "event_connection" {
 }
 ```
 
-## Requirements
-
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.5 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.14 |
-
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 5.14 |
-
-## Modules
-
-No modules.
-
-## Resources
-
-| Name | Type |
-|------|------|
-| [aws_cloudwatch_event_connection.connection](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_event_connection) | resource |
-
-## Inputs
-
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_name"></a> [name](#input\_name) | Name of the connection. Must be unique within the region. Length 1-64. Pattern: ^[0-9A-Za-z_.-]+ | `string` | n/a | yes |
-| <a name="input_authorization_type"></a> [authorization_type](#input\_authorization_type) | Type of authorization. One of: API_KEY, BASIC, OAUTH_CLIENT_CREDENTIALS | `string` | n/a | yes |
-| <a name="input_auth_parameters"></a> [auth_parameters](#input\_auth_parameters) | Authentication parameters. Exactly one of api_key, basic, or oauth must be set. | `object` | n/a | yes |
-| <a name="input_description"></a> [description](#input\_description) | Description of the connection. Length 0-512. | `string` | `null` | no |
-| <a name="input_invocation_connectivity_parameters"></a> [invocation_connectivity_parameters](#input\_invocation_connectivity_parameters) | Connectivity parameters for invocation (e.g., VPC Lattice). Used for private API access. | `object` | `null` | no |
-| <a name="input_kms_key_identifier"></a> [kms_key_identifier](#input\_kms_key_identifier) | ARN of the KMS key used to encrypt the connection credentials in Secrets Manager. Omit for AWS-managed encryption. | `string` | `null` | no |
-
-## Outputs
-
-| Name | Description |
-|------|-------------|
-| <a name="output_id"></a> [id](#output\_id) | The ID of the connection (same as the name). |
-| <a name="output_arn"></a> [arn](#output\_arn) | The ARN of the connection. |
-| <a name="output_name"></a> [name](#output\_name) | The name of the connection. |
-| <a name="output_secret_arn"></a> [secret_arn](#output\_secret_arn) | The ARN of the secret in Secrets Manager where connection credentials are stored. |
-
 ## Testing
 
 1. Run `make configure` to install dependencies.
