@@ -16,10 +16,10 @@ import (
 func TestComposableComplete(t *testing.T, ctx types.TestContext) {
 	opts := ctx.TerratestTerraformOptions()
 
-	connectionName := terraform.Output(t, opts, "name")
-	connectionArn := terraform.Output(t, opts, "arn")
-	connectionID := terraform.Output(t, opts, "id")
-	secretArn := terraform.Output(t, opts, "secret_arn")
+	connectionName := terraform.OutputContext(t, context.Background(), opts, "name")
+	connectionArn := terraform.OutputContext(t, context.Background(), opts, "arn")
+	connectionID := terraform.OutputContext(t, context.Background(), opts, "id")
+	secretArn := terraform.OutputContext(t, context.Background(), opts, "secret_arn")
 
 	require.NotEmpty(t, connectionName, "connection name should be set")
 	require.NotEmpty(t, connectionArn, "connection ARN should be set")
@@ -47,9 +47,9 @@ func TestComposableComplete(t *testing.T, ctx types.TestContext) {
 func TestComposableCompleteReadonly(t *testing.T, ctx types.TestContext) {
 	opts := ctx.TerratestTerraformOptions()
 
-	connectionName := terraform.Output(t, opts, "name")
-	connectionArn := terraform.Output(t, opts, "arn")
-	secretArn := terraform.Output(t, opts, "secret_arn")
+	connectionName := terraform.OutputContext(t, context.Background(), opts, "name")
+	connectionArn := terraform.OutputContext(t, context.Background(), opts, "arn")
+	secretArn := terraform.OutputContext(t, context.Background(), opts, "secret_arn")
 
 	require.NotEmpty(t, connectionName, "connection name should be set")
 	require.NotEmpty(t, connectionArn, "connection ARN should be set")
